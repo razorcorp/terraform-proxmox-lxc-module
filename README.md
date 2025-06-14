@@ -4,35 +4,35 @@ Terraform module for provisioning LXC infrastructure on Proxmox
 ## Usage example
 ```hcl
 module "container" {
-    src = "git::ssh://git@github.com:razorcorp/terraform-proxmox-lxc-module.git"
+  source = "git::ssh://git@github.com:razorcorp/terraform-proxmox-lxc-module.git"
 
-    proxmox_host    = "orion.razorcorp.dev"
-    datacenter      = "dc1"
-    image           = "local:vztmpl/ubuntu-20.04-standard_20.04-1_amd64.tar.gz"
-    hostname        = "sandbox"
-    public_key      = "ssh-rsa AAAAB3N...."
+  proxmox_host = "orion.razorcorp.dev"
+  datacenter   = "dc1"
+  image        = "local:vztmpl/ubuntu-20.04-standard_20.04-1_amd64.tar.gz"
+  hostname     = "sandbox"
+  public_key   = "ssh-rsa AAAAB3N...."
 
-    resources = {
-        cpu    = 1
-        memory = 4096
-        swap   = 1024
-    }
+  resources = {
+    cpu    = 1
+    memory = 4096
+    swap   = 1024
+  }
 
-    disk = {
-        size_gb = 50
-        storage = "local-zfs"
-    }
+  disk = {
+    size_gb = 50
+    storage = "local-zfs"
+  }
 
-    networking = {
-        bridge  = "vmbr0"
-        ip_addr = "10.0.0.5"
-        cidr    = 24
-        gateway = "10.0.0.1"
-    }
+  networking = {
+    bridge  = "vmbr0"
+    ip_addr = "10.0.0.5"
+    cidr    = 24
+    gateway = "10.0.0.1"
+  }
 
-    tags = [
-        "test"
-    ]    
+  tags = [
+    "test"
+  ]
 }
 ```
 
