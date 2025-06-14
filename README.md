@@ -2,13 +2,14 @@
 Terraform module for provisioning LXC infrastructure on Proxmox
 
 ## Usage example
+
+> Set the Proxmox server endpoint on the terminal
+```shell
+export PM_API_URL="https://proxmox.local:8006/api2/json"
+```
+
+> `main.tf`
 ```hcl
-
-# Configure the Proxmox server endpoint
-provider "proxmox" {
-  pm_api_url = "https://proxmox.example.com:8006/api2/json"
-}
-
 module "container" {
   source = "git::ssh://git@github.com:razorcorp/terraform-proxmox-lxc-module.git"
 
