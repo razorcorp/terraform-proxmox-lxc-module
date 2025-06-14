@@ -1,14 +1,3 @@
-variable "proxmox_host" {
-  type        = string
-  description = "FQDN or IP of the Proxmox server. Do NOT prefix with schemas!"
-}
-
-variable "proxmox_port" {
-  type        = number
-  description = "Proxmox API port"
-  default     = 8006
-}
-
 variable "datacenter" {
   type        = string
   description = "Proxmox datacenter name"

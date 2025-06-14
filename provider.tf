@@ -9,7 +9,3 @@ terraform {
     }
   }
 }
-
-provider "proxmox" {
-  pm_api_url = "https://${proxmox_port}:${proxmox_port}/api2/json"
-}

@@ -3,6 +3,12 @@ Terraform module for provisioning LXC infrastructure on Proxmox
 
 ## Usage example
 ```hcl
+
+# Configure the Proxmox server endpoint
+provider "proxmox" {
+  pm_api_url = "https://proxmox.example.com:8006/api2/json"
+}
+
 module "container" {
   source = "git::ssh://git@github.com:razorcorp/terraform-proxmox-lxc-module.git"
 
@@ -55,8 +61,6 @@ module "container" {
 
 | Name              | Required | Description | Type | Default |
 | ----------------- | -------- | ----------- | ---- | ------- |
-| `proxmox_host`    | Yes      | FQDN or IP of the Proxmox server. Do NOT prefix with schemas! | `string`| N/A |
-| `proxmox_port`    | No       | Proxmox API port | `number`| `8006` |
 | `datacenter`      | Yes      | Proxmox datacenter name | `string` | N/A |
 | `image`           | No       | OS temlate path for root fs extraction | `string` | `local:vztmpl/ubuntu-20.04-standard_20.04-1_amd64.tar.gz` |
 | `hostname`        | Yes      | Container hostname | `string` | N/A |
